@@ -4,12 +4,15 @@
 #   bonds are a debt entity (lend money that is repaid) while stocks are entity ownership
 #   bonds are impacted by interest rate, stocks are not
 
+# Market interest rate and bond prices are negatively correlated - higher interest rate = more profitable to lend money to banks than buy bonds
+
+# Yield to Maturity
 # 1) zero coupon bonds
 #       1000$, 2 years, 10% interest
 #       1000$ = principal amount/par value/face value/nominal value = only cash amount paid back to investor upon maturity
 #       10% interest = premium
 # Present value = x / (1 + r)^n = current value that investor pays
-#   x: principal amount, r: MARKET interest rate (Yield To Maturity), n: maturity time
+#   x: principal amount, r: MARKET interest rate, n: maturity time
 # 2) coupon bonds
 #       $1000, 10% coupon, 2 years
 #       coupon rate = 10% = paid annually on principal amount
@@ -24,11 +27,11 @@
 # Yield = return of a bond = annual coupon amount/bond price (how much paid at t = 0)
 # Yield to maturity (y) = overall interest rate
 
-# Market interest rate and bond prices are negatively correlated - higher interest rate = more profitable to lend money to banks than buy bonds
-
-# Macauley duration = how sensitive the bond price is to market interest changes
-#                   = -1/V * dV/dy  V: bond price, y: yield to maturity
-# For zero coupon bonds, the Macauley duration = T
+# Macauley duration = how long it takes for a bond to be repaid from its cash flows
+# Modified duration = how sensitive the bond price is to market interest changes
+#                   = -1/V * dV/dy
+#                     V: bond price, y: yield to maturity
+# For zero coupon bonds, the Macauley duration = T (maturity)
 # Prefer longer maturity when interest rates are expected to fall
 # Prefer shorter maturity when interest rates are expected to rise/remain stable
 
@@ -46,7 +49,6 @@ class ZeroCouponbond:
 
     def calculatePresentValue(self):
         return self.principal / (1 + self.interest)**self.maturity
-
 class CouponBond:
 
     def __init__(self, principal, b_interest, m_interest, maturity):

@@ -13,11 +13,10 @@
 # x(t + dt) - x(t) = dx(t)/dt * dt
 # As this is proportional to r and x(t):
 #           dx(t)/dt * dt = r * x(t) * dt
-#           dx(t)/dt * dt = r * x(t) * dt => integrate
+#           dx(t)/dt      = r * x(t)       => solve diffrenetial and integrate
 #           x(t)          = x(0) e^(r * t)
 #           FV            = PV e^(r * t)
-# Taylors/Maclaurins series is about taking non-polynomials, and trying to approximate them to polynomials around certain inputs. Easier to deal with/differentiate
-# Using Taylor's series https://www.youtube.com/watch?v=kZf6phY418U&ab_channel=ExamSolutions we derive the differential equation above
+#           PV            = FV e^-(r * t)
 
 from math import exp
 
@@ -67,7 +66,7 @@ if __name__ == '__main__':
 #       Money Supply - more money printed, higher inflation, lower demand, lower
 #       Financial stability/economic growth of country
 
-# Arbitratge = riskless money
+# Arbitrage = riskless money
 # Construct directed graph with nodes V (currencies), edges E (relative value)
 # Take negative natural log -ln(x) of edges. All values > 1 => negative value. Gives you graph where negative cycles = arbitrage loop
 # e.g £1 -> $1.05 -> €1.25

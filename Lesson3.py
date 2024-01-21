@@ -40,3 +40,33 @@
 
 # Capital Market Line connects risk free asset (e.g gov bond) to efficient frontier, intersects at max Sharpe Ratio point https://images.app.goo.gl/DnGhap7zC5GJxjf26
 # Moving along the line provides most efficient portfolio mix of risk-free assets and stocks
+
+import numpy as np
+import pandas
+import yfinance as yf
+import matplotlib.pyplot as plt
+import scipy.optimize as optimization
+
+# stocks
+stocks = ['AAPL', 'WMT', 'TSLA', 'GE', 'AMZN', 'DB']
+start_date = '2020-01-01'
+end_date = '2023-12-01'
+
+
+def download_data():
+    stock_data = {}
+    for stock in stocks:
+        # ticker is unique ID for listing security on stock exchange
+        ticker = yf.Ticker(stock)
+        # take closing prices for stock
+        stock_data[stock] = ticker.history(start=start_date, end=end_date)['Close']
+
+    return pandas.DataFrame(stock_data)
+
+def show_data(data):
+    data.plot()
+    plt.show()
+
+if __name__ == '__main__':
+    show_data(download_data())
+
