@@ -1,7 +1,4 @@
 ############## Modern Portfolio Theory - Markowitz Model
-# mean, variance and covariance https://www.alchemer.com/resources/blog/variance-covariance-correlation/
-# variance = std ∂^2
-# correlation standardises units unlike covariance https://www.cuemath.com/correlation-coefficient-formula/
 
 # Markowitz Model introduces diversification to reduce risk
 # For a given level of risk, we can construct portfolio for maximum profit
@@ -69,4 +66,3 @@ def show_data(data):
 
 if __name__ == '__main__':
     show_data(download_data())
-
